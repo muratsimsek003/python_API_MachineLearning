@@ -1,16 +1,11 @@
-import requests
-
-# The API endpoint
-url = "https://jsonplaceholder.typicode.com/posts/1"
-
-# A GET request to the API
-response = requests.get(url)
-
-# Print the response
-response_json = response.json()
-print(response_json)
-#Print status code from original response (not JSON)
-print(response.status_code)
-
+from flask import Flask, jsonify
+app = Flask(__name__)
+@app.route('/predict', methods=['POST'])
+def predict():
+     json_ = request.json
+     query_df = pd.DataFrame(json_)
+     query = pd.get_dummies(query_df)
+     prediction = lr.predict(query)
+     return jsonify({'prediction': list(prediction)})
 
 

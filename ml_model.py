@@ -30,8 +30,6 @@ for i in df_columns:
 
 df_short.head()
 
-import autosklearn.classification
-
 
 
 from sklearn.ensemble import RandomForestClassifier
@@ -54,6 +52,7 @@ print('RF Model Accuracy:', RF_skor)
 print("Random Forest Classification Report")
 print(classification_report(y_test,y_pred))
 
+df_short.head()
 
 pickle.dump(RF_model, open("model.pkl", "wb"))
 print("Model created")
